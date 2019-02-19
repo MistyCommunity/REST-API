@@ -12,3 +12,4 @@ These samples require you to manually input your robot's IP address in the `.htm
 * __Tutorial | Taking Pictures__ The full code sample from the [Taking Pictures](https://docs.mistyrobotics.com/docs/skills/remote-command-tutorials/#taking-pictures) tutorial.
 * __Tutorial | Using Sensors, WebSockets, and Locomotion__ - The full code sample from the tutorial on [Using Sensors, WebSockets, and Locomotion](https://docs.mistyrobotics.com/docs/skills/remote-command-tutorials/#using-sensors-websockets-and-locomotion).
 * __Tutorial | Time-of-Flight__ The full code sample from the [Time-of-Flight](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#time-of-flight) tutorial.
+* __Tutorial | Play Audio__ The full code sample from the [Play Audio](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#play-audio) tutorial.
