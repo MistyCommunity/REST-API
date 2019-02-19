@@ -22,4 +22,5 @@ These samples require you to manually input your robot's IP address in the `.htm
 * __Tutorial | Timer Events__ - The full code sample from the [Timer Events](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#timer-events) tutorial.
 * __Tutorial | External Requests__ - The full code sample from the [External Requests](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#external-requests) tutorial.
 * __Tutorial | Trigger Skill__ - The full code sample from the [Trigger Skill](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#trigger-skill) tutorial.
-* __Tutorial | Head & Arm Movement__ - The full code sample from the [Head & Arm Movement](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#head-amp-arm-movement-misty-ii-) tutorial.
+* __Tutorial | Head & Arm Movement (Misty II)__ - The full code sample from the [Head & Arm Movement](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#head-amp-arm-movement-misty-ii-) tutorial.
+* __Tutorial | Bump Sensors (Misty II)__ - The full code sample from the [Bump Sensors](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#bump-sensors-misty-ii-) tutorial.
