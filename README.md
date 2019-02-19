@@ -21,4 +21,4 @@ These samples require you to manually input your robot's IP address in the `.htm
 * __Tutorial | Face Detection__ - The full code sample from the [Face Detection](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#face-detection) tutorial.
 * __Tutorial | Timer Events__ - The full code sample from the [Timer Events](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#timer-events) tutorial.
 * __Tutorial | External Requests__ - The full code sample from the [External Requests](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#external-requests) tutorial.
-* __Tutorial | Trigger Skill__ = The full code sample from the [Trigger Skill](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#trigger-skill) tutorial.
+* __Tutorial | Trigger Skill__ - The full code sample from the [Trigger Skill](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#trigger-skill) tutorial.
