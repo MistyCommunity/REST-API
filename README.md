@@ -18,3 +18,4 @@ These samples require you to manually input your robot's IP address in the `.htm
 * __Tutorial | Time-of-Flight__ The full code sample from the [Time-of-Flight](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#time-of-flight) tutorial.
 * __Tutorial | Play Audio__ The full code sample from the [Play Audio](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#play-audio) tutorial.
 * __Tutorial | Record Audio__ The full code sample from the [Record Audio](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#record-audio) tutorial.
+* __Tutorial | Face Detection__ The full code sample from the [Face Detection](https://docs.mistyrobotics.com/docs/skills/local-skill-tutorials/#face-detection) tutorial.

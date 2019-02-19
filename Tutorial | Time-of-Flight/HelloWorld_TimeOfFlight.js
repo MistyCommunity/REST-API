@@ -24,7 +24,7 @@ misty.DriveTime(50, 0, 10000);
 // Register for TimeOfFlight data and add property tests
 misty.AddPropertyTest("FrontTOF", "SensorPosition", "==", "Center", "string");
 misty.AddPropertyTest("FrontTOF", "DistanceInMeters", "<=", 0.2, "double");
-misty.RegisterEvent("FrontTOF", "TimeOfFlight", false);
+misty.RegisterEvent("FrontTOF", "TimeOfFlight", 250);
 
 // FrontTOF callback function
 function _FrontTOF(data) {
