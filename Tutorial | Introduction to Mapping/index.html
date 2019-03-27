@@ -34,7 +34,7 @@ implied.
 
 		// Declare a global variable ip.
 		// Set its value to Misty's IP address.
-		const ip = "<robotipaddress>";
+		const ip = "<robot-ip-address>";
 		// The pixelsPerGrid variable is used in drawMap().
 		// Adjust this value to change the size of the map.
 		const pixelsPerGrid = 10;
@@ -184,9 +184,10 @@ implied.
 		// Define processMap()
 		function processMap(res) {
     		// Print a message that we have received the map data.
-			console.log("4 - Recieved map, processing map data");
+			console.log("4 - Received map, processing map data");
 			// Store the map data.
-			let data = res.data;
+			console.log(res)
+			let data = JSON.parse(res.data);
 			drawMap(data)
 		}
 
@@ -197,6 +198,7 @@ implied.
 		function drawMap(data) {
 			var canvas = document.getElementById("mapCanvas");
 			var context = canvas.getContext("2d");
+			console.log("Valid data - meters per cell = " + data[0].result.metersPerCell)
 			canvas.width = (data[0].result.width - 1) * pixelsPerGrid;
 			canvas.height = (data[0].result.height - 1) * pixelsPerGrid;
 			context.scale(pixelsPerGrid, pixelsPerGrid);
