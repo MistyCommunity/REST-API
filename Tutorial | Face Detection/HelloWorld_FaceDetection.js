@@ -17,18 +17,18 @@ implied.
 misty.Debug("starting skill helloworld_facedetection");
 
 // Register for face detection event
-misty.RegisterEvent("FaceDetection", "ComputerVision", 250);
+misty.RegisterEvent("FaceRecognition", "FaceRecognition", 250);
 // Timer event cancels the skill
 // if no face is detected after 15 seconds
-misty.RegisterTimerEvent("FaceDetectionTimeout", 15000);
+misty.RegisterTimerEvent("FaceRecognitionTimeout", 15000);
 
 misty.StartFaceDetection();
 
 // FaceDetection event callback
-function _FaceDetection() {
+function _FaceRecognition() {
     misty.Debug("Face detected!");
     // Play an audio clip
-    misty.PlayAudioClip("005-OoAhhh.wav");
+    misty.PlayAudio("005-OoAhhh.wav");
     // Change LED to white
     misty.ChangeLED(255, 255, 255);
     // Stop face detection
@@ -36,7 +36,7 @@ function _FaceDetection() {
 };
 
 // FaceDetectionTimeout callback
-function _FaceDetectionTimeout() {
+function _FaceRecognitionTimeout() {
     misty.Debug("face detection timeout called, it's taking too long...");
 
     // Change LED to black
