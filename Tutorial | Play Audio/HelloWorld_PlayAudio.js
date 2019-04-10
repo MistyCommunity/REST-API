@@ -18,10 +18,10 @@ implied.
 misty.Debug("starting skill helloworld_playaudio");
 
 // Issue command to fetch list of audio clips
-misty.GetListOfAudioClips();
+misty.GetAudioList();
 
 // Callback to handle data returned by GetListOfAudioClips()
-function _GetListOfAudioClips(data) {
+function _GetAudioList(data) {
     // Check if data was received
     if (data) {
         // Capture the array of files
@@ -35,6 +35,6 @@ function _GetListOfAudioClips(data) {
         misty.Debug(randSound);
 
         // Issue command to play the audio clip
-        misty.PlayAudioClip(randSound);
+        misty.PlayAudio(randSound);
     }
 }
