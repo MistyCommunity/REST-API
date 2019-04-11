@@ -62,9 +62,9 @@ implied.
         // connection to your robot.
 		async function openCallback() {
 
-            // Unsubscribe from any existing ComputerVision 
+            // Unsubscribe from any existing FaceRecognition 
             // WebSocket connections.
-            socket.Unsubscribe("ComputerVision");
+            socket.Unsubscribe("FaceRecognition");
 
             // Use sleep() to pause execution for 
             // three seconds to give Misty time 
@@ -72,13 +72,13 @@ implied.
 			await sleep(3000);
 
             // Issue a GET request to the endpoint 
-            // for the GetLearnedFaces command. 
+            // for the GetKnownFaces command. 
             // Use then() to pass the response 
             // to a callback function.
-			axios.get("http://" + ip + "/api/beta/faces").then(function (res) {
+			axios.get("http://" + ip + "/api/faces").then(function (res) {
                 // Store the list of known faces in the
                 // faceArr variable and print this list.
-				let faceArr = res.data[0].result;
+				let faceArr = res.data.result;
 				console.log("Learned faces:", faceArr);
 
                 // Loop through each item in faceArr. 
@@ -92,13 +92,13 @@ implied.
 					}
 				}
 
-                // Subscribe to the ComputerVision WebSocket. 
-                // Pass ComputerVision for the eventName and 
+                // Subscribe to the FaceRecognition WebSocket. 
+                // Pass FaceRecognition for the eventName and 
                 // msgType parameters. Set debounceMs to 200 
-                // and pass a callback function named _ComputerVision 
+                // and pass a callback function named _FaceRecognition 
                 // for the callback parameter. Pass null for 
                 // all other arguments.
-				socket.Subscribe("ComputerVision", "ComputerVision", 200, null, null, null, null, _ComputerVision);
+				socket.Subscribe("FaceRecognition", "FaceRecognition", 200, null, null, null, null, _FaceRecognition);
 
                 // Use an if, else statement to execute 
                 // startFaceRecognition() if onList is true 
@@ -114,25 +114,25 @@ implied.
         };
         
         // Define the callback function for handling  
-        // ComputerVision event data.
-		function _ComputerVision(data) {
-            // Wrap the code for the _ComputerVision callback 
+        // FaceRecognition event data.
+		function _FaceRecognition(data) {
+            // Wrap the code for the _FaceRecognition callback 
             // inside try and catch statements. 
 			try {
                 // Use an if statement to check that personName 
                 // does not equal "unknown person", null, or 
                 // undefined. personName is included in the 
-                // message returned by ComputerVision WebSocket events.
+                // message returned by FaceRecognition WebSocket events.
 				if (data.message.personName !== "unknown person" && data.message.personName !== null && data.message.personName !== undefined) {
                     // If the face is recognized, print a 
                     // message to greet the person by name.
 					console.log(`A face was recognized. Hello there ${data.message.personName}!`);
 
-					// Unsubscribe from the ComputerVision WebSocket.
-                    socket.Unsubscribe("ComputerVision");
+					// Unsubscribe from the FaceRecognition WebSocket.
+                    socket.Unsubscribe("FaceRecognition");
                     // Use Axios to issue a POST command to the 
                     // endpoint for the StopFaceRecognition command.
-					axios.post("http://" + ip + "/api/beta/faces/recognition/stop");
+					axios.post("http://" + ip + "/api/faces/recognition/stop");
 				}
             }
             // Print any errors to the console.
@@ -152,7 +152,7 @@ implied.
             // Axios to send a POST request to the endpoint 
             // for the StartFaceRecognition command.
 			console.log("starting face recognition");
-			axios.post("http://" + ip + "/api/beta/faces/recognition/start");
+			axios.post("http://" + ip + "/api/faces/recognition/start");
         };
         
         // Define the function that executes 
@@ -165,7 +165,7 @@ implied.
             // to send a POST request to the endpoint for 
             // the StartFaceTraining command.
 			console.log("starting face training");
-			axios.post("http://" + ip + "/api/beta/faces/training/start", { FaceId: you });
+			axios.post("http://" + ip + "/api/faces/training/start", { FaceId: you });
 
             // Give Misty time to complete the face 
             // training process. Call sleep and pass 
@@ -176,7 +176,7 @@ implied.
             console.log("face training complete");
             // Use Axios to send a POST request to the endpoint 
              // for the StartFaceRecognition command.
-			axios.post("http://" + ip + "/api/beta/faces/recognition/start");
+			axios.post("http://" + ip + "/api/faces/recognition/start");
         };
         
         // Open the connection to your robot. 
@@ -185,7 +185,7 @@ implied.
         // to check whether the value stored in 
         // you is on Misty's list of known faces. 
         // Then, the program subscribes to the 
-        // ComputerVision WebSocket, and Misty 
+        // FaceRecognition WebSocket, and Misty 
         // either greets you by name or starts 
         // facial training to learn your face so 
         // she can greet you in the future.
