@@ -34,7 +34,7 @@ implied.
 
 		// Declare a global variable ip.
 		// Set its value to Misty's IP address.
-		const ip = "<robot-ip-address>";
+		const ip = "10.0.0.42";
 		// The pixelsPerGrid variable is used in drawMap().
 		// Adjust this value to change the size of the map.
 		const pixelsPerGrid = 10;
@@ -137,8 +137,8 @@ implied.
 			// update state
 			mapping = true;
     		// Use axios.post() to send a POST request 
-    		// to the endpoint for the SlamStartMapping command.
-			axios.post("http://" + ip + "/api/alpha/slam/map/start");
+    		// to the endpoint for the StartMapping command.
+			axios.post("http://" + ip + "/api/slam/map/start");
 			getMap();
 		}
 
@@ -158,8 +158,8 @@ implied.
 			// gather map data. Execution of the program
 			// continues when you click OK.
 			alert("Head over to the API explorer and drive Misty around the room to gather map data. Once finished, hit ok to proceed.");
-			// Use axios.post() to send a POST request to the endpoint for the SlamStopMapping command.
-			axios.post("http://" + ip + "/api/alpha/slam/map/stop");
+			// Use axios.post() to send a POST request to the endpoint for the StopMapping command.
+			axios.post("http://" + ip + "/api/slam/map/stop");
 			// Pause execution while mapping is true.
 			while (mapping) {
 				await sleep(500);
@@ -170,9 +170,9 @@ implied.
 			console.log("3 - Mapping has stopped, obtaining map");
 
 			// Use axios.get() to send a GET request 
-			// to the endpoint for the SlamGetRawMap command.
+			// to the endpoint for the GetMap command.
 			// Use then() to call unsubscribeSelfState() and processMap().
-			axios.get("http://" + ip + "/api/alpha/slam/map/raw")
+			axios.get("http://" + ip + "/api/slam/map")
 				.then((data) => {
 					unsubscribeSelfState();
 					processMap(data);
