@@ -50,7 +50,7 @@ implied.
         // Use a catch() method after then(). catch() triggers 
         // if the promise is rejected. Pass a callback to catch() 
         // to print any errors to the console.
-        axios.post("http://" + ip + "/api/led/change", data)
+        axios.post("http://" + ip + "/api/led", data)
             .then(function (response) {
                 console.log(`ChangeLED was a ${response.data[0].status}`);
             })
