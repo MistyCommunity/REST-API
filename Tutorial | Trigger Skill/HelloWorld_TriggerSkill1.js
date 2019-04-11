@@ -20,7 +20,7 @@ misty.AddReturnProperty("FaceRecognition", "PersonName");
 // Register for FaceRecognition events.
 // For the callback, pass in the GUID for
 // HelloWorld_TriggerSkill2.
-misty.RegisterEvent("FaceRecognition", "ComputerVision", 5000, true, "Synchronous", "28c7cb66-91d4-4c8f-a8af-bb667ce18099");
+misty.RegisterEvent("FaceRecognition", "FaceRecognition", 5000, true, "Synchronous", "28c7cb66-91d4-4c8f-a8af-bb667ce18099");
 
 misty.StartFaceRecognition();
 
