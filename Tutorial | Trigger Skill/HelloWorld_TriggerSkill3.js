@@ -23,14 +23,14 @@ function _BackTOF(data) {
     // Check the value of distance
     if (distance < 0.1) {
         // Play irritated audio clip
-        misty.PlayAudioClip("002-Ahhh.wav", 100);
+        misty.PlayAudio("002-Ahhh.wav", 100);
         misty.Debug("An object was detected " + distance + " meters behind me. That's too close!");
         // Drive forward
         misty.DriveTime(50, 0, 1000);
     }
     else {
         // Play happy audio clip
-        misty.PlayAudioClip("004-WhaooooO.wav", 100);
+        misty.PlayAudio("004-WhaooooO.wav", 100);
         misty.Debug("An object was detected " + distance + " meters behind me. That's okay.");
     }
 }

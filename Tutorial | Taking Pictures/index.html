@@ -30,13 +30,13 @@ implied.
 		/* GLOBALS */
 
 		// Declare a global variable ip and set its value to a string with your robot's IP address.
-		const ip = "<robot-ip-address>";
+		const ip = "10.0.0.42";
 		// Set firstTime to true. This variable tracks
 		// whether we have already sent the command to 
 		// start face detection.
 		let firstTime = true;
 		// Track whether we are currently subscribed 
-		// to ComputerVision events.
+		// to FaceRecognition events.
 		let subscribed;
 		// Create a new instance of LightSocket. 
 		// Pass the ip variable and the name of the
@@ -57,17 +57,17 @@ implied.
 		// This function runs when the socket opens.
 		async function openCallback() {
 			subscribed = false;
-			// Unsubscribe from the ComputerVision event.
-			socket.Unsubscribe("ComputerVision");
+			// Unsubscribe from the FaceRecognition event.
+			socket.Unsubscribe("FaceRecognition");
 			// Pause execution while the event subscription ends.
 			await sleep(8000);
 			// Call socket.Subscribe(). Pass in the following
-			// arguments to subscribe to "ComputerVision" events.
-			socket.Subscribe("ComputerVision", "ComputerVision", 1000, null, null, null, null, _ComputerVision);
+			// arguments to subscribe to "FaceRecognition" events.
+			socket.Subscribe("FaceRecognition", "FaceRecognition", 1000, null, null, null, null, _FaceRecognition);
 		}
-		// Define the _ComputerVision() callback function.
-		// This function handles ComputerVision event data.
-		async function _ComputerVision(data) {
+		// Define the _FaceRecognition() callback function.
+		// This function handles FaceRecognition event data.
+		async function _FaceRecognition(data) {
 			// Print a message each time the callback executes.
 			console.log("CV callback called: ", data);
 			// Update subscribed to true.
@@ -77,7 +77,7 @@ implied.
 				// to the endpoint for the StartFaceDetection
 				// command.
 				if (firstTime) {
-					axios.post("http://" + ip + "/api/beta/faces/recognition/start")
+					axios.post("http://" + ip + "/api/faces/recognition/start")
 						.catch((err) => {
 							console.log(err);
 						});
@@ -96,7 +96,7 @@ implied.
 				// to the endpoint for the TakePicture command. 
 				// Pass in the following params to save the file
 				// to Misty.
-				axios.get("http://" + ip + "/api/alpha/camera", {
+				axios.get("http://" + ip + "/api/cameras/rgb", {
 					params: {
 						Base64: null,
 						FileName: fileName,

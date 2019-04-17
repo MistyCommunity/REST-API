@@ -17,10 +17,10 @@ implied.
 misty.Debug("HelloWorld_BumpSensors is running")
 
 // Fetch list of audio clips
-misty.GetListOfAudioClips("_GetListOfAudioClips","synchronous");
+misty.GetAudioList("_GetAudioList","synchronous");
 
 // Handle the list of audio clips
-function _GetListOfAudioClips(data) {
+function _GetAudioList(data) {
    // Assign audio files from the list to global variables
    _audio1 = data.Result[0].Name;
    _audio2 = data.Result[1].Name;
@@ -47,22 +47,22 @@ function _BumpSensor(data) {
 
         case "Bump_FrontRight":
             misty.Debug("front right bump sensor pressed")
-            misty.PlayAudioClip(_audio1, 75);
+            misty.PlayAudio(_audio1, 75);
             break
 
         case "Bump_FrontLeft":
             misty.Debug("front left bump sensor pressed")
-            misty.PlayAudioClip(_audio2, 75);
+            misty.PlayAudio(_audio2, 75);
             break
 
         case "Bump_RearRight":
             misty.Debug("rear right bump sensor pressed")
-            misty.PlayAudioClip(_audio3, 75);
+            misty.PlayAudio(_audio3, 75);
             break
 
         case "Bump_RearLeft":
             misty.Debug("rear left bump sensor pressed")
-            misty.PlayAudioClip(_audio4, 75);
+            misty.PlayAudio(_audio4, 75);
             break
     }
 }

@@ -27,10 +27,10 @@ misty.StopRecordingAudio();
 misty.Pause(2000);
 
 // Send request to fetch list of audio files
-misty.GetListOfAudioFiles();
+misty.GetAudioList();
 
 // Define the callback for request
-function _GetListOfAudioFiles(data) {
+function _GetAudioList(data) {
     // Get the array of audio files from the data returned 
     // by GetListOfAudioFiles()
     let audioArr = data.Result;
@@ -50,7 +50,7 @@ function _GetListOfAudioFiles(data) {
 
     // If list contains recording, issue a command to play the recording
     if (containsNewFile) {
-        misty.PlayAudioClip("RecordingExample.wav", 100, 500);
+        misty.PlayAudio("RecordingExample.wav", 100, 500);
     } else {
         // If the list does not contain the recording, print an error message
         misty.Debug("file was not found");
