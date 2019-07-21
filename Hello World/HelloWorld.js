@@ -24,7 +24,7 @@ function _look_around(repeat = true) {
         getRandomInt(-5, 5), // Random pitch position between -5 and 5
         getRandomInt(-5, 5), // Random roll position between -5 and 5
         getRandomInt(-5, 5), // Random yaw position between -5 and 5
-        300); // Head movement velocity. Decrease for slower movement.
+        100); // Head movement velocity. Decrease for slower movement.
 
         // If repeat is set to true, re-registers for the look_around
         // timer event, and Misty moves her head until the skill ends.
