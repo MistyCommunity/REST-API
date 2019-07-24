@@ -16,23 +16,18 @@ implied.
 
 misty.Debug("Starting skill HelloWorld_ExternalRequest");
 
-// Get and play an audio file hosted on soundbible.com.
+// Send a request to the APIXU API, using parameters from the skill's
+// JSON meta file to fill out the key and city in the resource URL.
 misty.SendExternalRequest(
-    "GET", /*method*/
-    "http://soundbible.com/grab.php?id=1949&type=mp3", /*resourceURL*/
-    null, /*authorizationType*/
-    null, /*token*/
-    "audio/mp3", /*returnType*/
-    null, /*jsonArgs*/
-    true, /*saveAssetToRobot*/
-    true, /*applyAssetAfterSaving*/
-    "sound", /*fileName*/
-    null, /*callbackMethod*/
-    null, /*callbackRule*/
-    null, /*skillToCallOnCallback*/
-    0, /*prePause*/
-    0/*postPause*/
-    );
+    "GET",
+    "http://api.apixu.com/v1/current.json?key="+_params.key+"&q="+_params.city
+    )
 
-// Signal skill completion
-misty.Debug("The skill is complete!!")
+// Parse the response data to get the current condition in _params.city
+// and print this in a string to the dev console in the Skill Runner
+// web page.
+function _SendExternalRequest(data) {
+    _data = JSON.parse(data.Result.ResponseObject.Data)
+    _condition = _data.current.condition.text
+    misty.Debug("Misty here! Just letting you know it's " + _condition + " in " + _params.city);
+}

@@ -8,5 +8,8 @@
     "TimeoutInSeconds": 300,
     "CleanupOnCancel": false,
     "WriteToLog": false,
-    "Parameters": { }
+    "Parameters": {
+		"key": "<your-APIXU-key>",
+        "city": "Boulder"
+	}
 }
