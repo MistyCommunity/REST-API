@@ -142,7 +142,7 @@ function waveRightArm() {
     misty.Pause(50);
     misty.MoveArmDegrees("right", 90, 45); // Right arm fully down
     misty.Pause(3000); // Pause for 3 seconds
-    misty.MoveArmPosition("right", -45, 45); // Right arm up
+    misty.MoveArmDegrees("right", -45, 45); // Right arm up
     misty.Pause(5000); // Pause with arm up for 5 seconds (wave!)
     misty.MoveArmDegrees("right", 90, 45); // Right arm fully down
 }
