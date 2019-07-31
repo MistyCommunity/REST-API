@@ -30,7 +30,7 @@ implied.
 		
         // Declare a constant variable and set its 
         // value to a string with your robot’s IP address.
-		const ip = "<robotipaddress>";
+		const ip = "<robot-ip-address>";
 
         // Create a new instance of LightSocket called 
         // socket. Pass as arguments the ip variable and 
@@ -58,12 +58,12 @@ implied.
                 // Write an if statement to check 
                 // if the distance is smaller than 0.2 meters.
 				if (distance < 0.2) {
-                    // If the istance is less than 0.2 meters, send
+                    // If the distance is less than 0.2 meters, send
                     // a request to endpoint for the Stop command.  
 					axios.post("http://" + ip + "/api/drive/stop")
 						.then(function (response) {
 							// Print the results
-							console.log(`Stop was a ${response.data[0].status}`);
+							console.log(`Stop was a ${response.data.status}`);
 						})
 						.catch(function (error) {
 							// Print any errors
@@ -136,7 +136,7 @@ implied.
                 // Use .then() to handle a successful response
 				.then(function (response) {
 					// Print the results
-					console.log(`DriveTime was a ${response.data[0].status}`);
+					console.log(`DriveTime was a ${response.data.status}`);
                 })
                 //  // Use .catch() to handle errors
 				.catch(function (error) {
