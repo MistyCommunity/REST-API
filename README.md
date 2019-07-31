@@ -15,8 +15,8 @@ To run these skills on your Misty, upload the code and meta files from the folde
 * __Tutorial | Timer Events__ - The full code sample from the [Timer Events](https://docs.mistyrobotics.com/misty-ii/coding-misty/local-skill-tutorials/#timer-events) tutorial.
 * __Tutorial | External Requests__ - The full code sample from the [External Requests](https://docs.mistyrobotics.com/misty-ii/coding-misty/local-skill-tutorials/#external-requests) tutorial.
 * __Tutorial | Trigger Skill__ - The full code sample from the [Trigger Skill](https://docs.mistyrobotics.com/misty-ii/coding-misty/local-skill-tutorials/#trigger-skill) tutorial.
-* __Tutorial | Head & Arm Movement (Misty II)__ - The full code sample from the [Head & Arm Movement](https://docs.mistyrobotics.com/misty-ii/coding-misty/local-skill-tutorials/#head-amp-arm-movement-misty-ii-) tutorial.
-* __Tutorial | Bump Sensors (Misty II)__ - The full code sample from the [Bump Sensors](https://docs.mistyrobotics.com/misty-ii/coding-misty/local-skill-tutorials/#bump-sensors-misty-ii-) tutorial.
+* __Tutorial | Head & Arm Movement__ - The full code sample from the [Head & Arm Movement](https://docs.mistyrobotics.com/misty-ii/coding-misty/local-skill-tutorials/#head-amp-arm-movement-misty-ii-) tutorial.
+* __Tutorial | Bump Sensors__ - The full code sample from the [Bump Sensors](https://docs.mistyrobotics.com/misty-ii/coding-misty/local-skill-tutorials/#bump-sensors) tutorial.
 
 ## REST API Tutorials
 
