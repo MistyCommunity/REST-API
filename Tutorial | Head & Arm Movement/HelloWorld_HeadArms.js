@@ -26,7 +26,7 @@ misty.RegisterEvent("FrontTOF", "TimeOfFlight", 100);
 function _FrontTOF(data) {
     misty.Debug(data);
     misty.ChangeLED(0, 255, 255); // aqua
-    misty.PlayAudio("001-OooOooo.wav");
+    misty.PlayAudio("s_Awe.wav");
 
     // pitch
     misty.MoveHeadPosition(-5, 0, 0, 60, 0, 1500); // pitch up
@@ -34,7 +34,7 @@ function _FrontTOF(data) {
     misty.MoveHeadPosition(0, 0, 0, 60, 0, 1500); // pitch center
 
     misty.ChangeLED(255, 0, 255); // magenta
-    misty.PlayAudio("004-WhaooooO.wav");
+    misty.PlayAudio("s_Awe2.wav");
 
     // yaw
     misty.MoveHeadPosition(0, 0, -5, 60, 0, 1500); // yaw left
@@ -42,7 +42,7 @@ function _FrontTOF(data) {
     misty.MoveHeadPosition(0, 0, 0, 60, 0, 1500); // yaw center
 
     misty.ChangeLED(255, 255, 0); // yellow
-    misty.PlayAudio("004-EuuEuuuuu.wav");
+    misty.PlayAudio("s_Awe3.wav");
 
     // roll
     misty.MoveHeadPosition(0, -5, 0, 60, 0, 1500); // roll left
@@ -50,7 +50,7 @@ function _FrontTOF(data) {
     misty.MoveHeadPosition(0, 0, 0, 60, 0, 1500); // roll center
 
     misty.ChangeLED(0, 0, 0); // off
-    misty.PlayAudio("010-Hummmmmm.wav");
+    misty.PlayAudio("s_DisorientedConfused.wav");
 
     // register for back TOF and add property tests
     misty.AddPropertyTest("BackTOF", "SensorPosition", "==", "Back", "string");
@@ -61,21 +61,21 @@ function _FrontTOF(data) {
 // back TOF callback, arms
 function _BackTOF() {
     misty.ChangeLED(0, 255, 0) // lime
-    misty.PlayAudio("006-Urhurra.wav");
+    misty.PlayAudio("s_Joy.wav");
 
     // left
     misty.MoveArmPosition("Left", 10, 60, 0, 1500); // up
     misty.MoveArmPosition("Left", 2, 60, 0, 1500); // down
 
     misty.ChangeLED(128, 0, 0) // maroon
-    misty.PlayAudio("001-EeeeeeE.wav");
+    misty.PlayAudio("s_Joy2.wav");
 
     // right
     misty.MoveArmPosition("Right", 10, 60, 0, 1500); // up
     misty.MoveArmPosition("Right", 2, 60, 0, 1500); // down
 
     misty.ChangeLED(0, 0, 0); // off
-    misty.PlayAudio("010-Hummmmmm.wav");
+    misty.PlayAudio("s_Joy3.wav");
 
     misty.Debug("ending skill HelloWorld_HeadArms");
 }
