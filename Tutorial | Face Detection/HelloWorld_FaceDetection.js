@@ -28,7 +28,7 @@ misty.StartFaceDetection();
 function _FaceRecognition() {
     misty.Debug("Face detected!");
     // Play an audio clip
-    misty.PlayAudio("005-OoAhhh.wav");
+    misty.PlayAudio("s_Joy3.wav");
     // Change LED to white
     misty.ChangeLED(255, 255, 255);
     // Stop face detection
