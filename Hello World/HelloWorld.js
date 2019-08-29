@@ -38,10 +38,10 @@ function _look_around(repeat = true) {
     // Moves Misty's head to a random position. Adjust the min/max
     // values passed into getRandomInt() to change Misty's range of
     // motion when she calls this method.
-    misty.MoveHeadPosition(
-        getRandomInt(-3, 3), // Random pitch position between -3 and 3
-        getRandomInt(-3, 3), // Random roll position between -3 and 3
-        getRandomInt(-3, 3), // Random yaw position between -3 and 3
+    misty.MoveHeadDegrees(
+        getRandomInt(-40, 20), // Random pitch position between -40 and 20
+        getRandomInt(-30, 30), // Random roll position between -30 and 30
+        getRandomInt(-40, 40), // Random yaw position between -40 and 40
         100); // Head movement velocity. Decrease for slower movement.
 
         // If repeat is set to true, re-registers for the look_around
@@ -60,7 +60,7 @@ misty.RegisterTimerEvent("look_around", getRandomInt(5, 10) * 1000, false);
 Changing Misty's LED
 
 This part of Misty's Hello World tutorial teaches how to write code to
-have Misty's LED fade between green and yellow.
+have Misty's LED pulse purple.
 **********************************************************************/
 
 // The breathingLED timer event invokes this callback function.
@@ -109,7 +109,7 @@ have Misty play a sound
 **********************************************************************/
 
 // Plays an audio file at max volume.
-misty.PlayAudio("001-EeeeeeE.wav", 100);
+misty.PlayAudio("s_Amazement.wav", 100);
 // Pauses for 3000 milliseconds before executing the next command.
 misty.Pause(3000);
 
@@ -138,13 +138,9 @@ raise her right arm and wave.
 
 // Waves Misty's right arm!
 function waveRightArm() {
-    misty.MoveArmDegrees("left", 90, 45); // Left arm fully down
-    misty.Pause(50);
-    misty.MoveArmDegrees("right", 90, 45); // Right arm fully down
-    misty.Pause(3000); // Pause for 3 seconds
-    misty.MoveArmDegrees("right", -45, 45); // Right arm up
-    misty.Pause(5000); // Pause with arm up for 5 seconds (wave!)
-    misty.MoveArmDegrees("right", 90, 45); // Right arm fully down
+    misty.MoveArmDegrees("right", -80, 30); // Right arm up to wave
+    misty.Pause(3000); // Pause with arm up for 3 seconds
+    misty.MoveArmDegrees("right", 80, 30); // Both arms down
 }
 
 waveRightArm();
@@ -186,15 +182,15 @@ function _FaceRec(data) {
     // Then, replace <Your-Name> below with your own name! If Misty
     // sees and recognizes you, she waves and looks happy.
     if (faceDetected == "<Your-Name>") {
-        misty.DisplayImage("DefaultEyes_Joy.jpg");
-        misty.PlayAudio("005-Eurra.wav");
+        misty.DisplayImage("e_Joy.jpg");
+        misty.PlayAudio("s_Joy3.wav");
         waveRightArm();
     }
     // If misty sees someone she doesn't know, she raises her eyebrow
     // and plays a different sound.
     else if (faceDetected == "unknown person") {
-        misty.DisplayImage("DefaultEyes_Disgust.jpg");
-        misty.PlayAudio("001-OooOooo.wav");
+        misty.DisplayImage("e_Contempt.jpg");
+        misty.PlayAudio("s_DisorientedConfused4.wav");
     };
 
     // Register for a timer event to invoke the _registerFaceRec
@@ -205,6 +201,3 @@ function _FaceRec(data) {
 
 // Starts Misty recognizing faces!
 _registerFaceRec();
-
-
-
