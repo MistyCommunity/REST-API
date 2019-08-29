@@ -42,7 +42,7 @@ function _look_around(repeat = true) {
         getRandomInt(-40, 20), // Random pitch position between -40 and 20
         getRandomInt(-30, 30), // Random roll position between -30 and 30
         getRandomInt(-40, 40), // Random yaw position between -40 and 40
-        100); // Head movement velocity. Decrease for slower movement.
+        30); // Head movement velocity. Can increase up to 100.
 
         // If repeat is set to true, re-registers for the look_around
         // timer event, and Misty moves her head until the skill ends.
@@ -140,7 +140,7 @@ raise her right arm and wave.
 function waveRightArm() {
     misty.MoveArmDegrees("right", -80, 30); // Right arm up to wave
     misty.Pause(3000); // Pause with arm up for 3 seconds
-    misty.MoveArmDegrees("right", 80, 30); // Both arms down
+    misty.MoveArmDegrees("both", 80, 30); // Both arms down
 }
 
 waveRightArm();
