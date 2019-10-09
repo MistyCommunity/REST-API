@@ -29,25 +29,25 @@ function _FrontTOF(data) {
     misty.PlayAudio("s_Awe.wav");
 
     // pitch
-    misty.MoveHeadPosition(-5, 0, 0, 60, 0, 1500); // pitch up
-    misty.MoveHeadPosition(5, 0, 0, 60, 0, 1500); // pitch down
-    misty.MoveHeadPosition(0, 0, 0, 60, 0, 1500); // pitch center
+    misty.MoveHeadDegrees(-40, 0, 0, 60, 0, 1500); // pitch up
+    misty.MoveHeadDegrees(26, 0, 0, 60, 0, 1500); // pitch down
+    misty.MoveHeadDegrees(0, 0, 0, 60, 0, 1500); // pitch center
 
     misty.ChangeLED(255, 0, 255); // magenta
     misty.PlayAudio("s_Awe2.wav");
 
     // yaw
-    misty.MoveHeadPosition(0, 0, -5, 60, 0, 1500); // yaw left
-    misty.MoveHeadPosition(0, 0, 5, 60, 0, 1500); // yaw right
-    misty.MoveHeadPosition(0, 0, 0, 60, 0, 1500); // yaw center
+    misty.MoveHeadDegrees(0, 0, -81, 60, 0, 1500); // yaw left
+    misty.MoveHeadDegrees(0, 0, 81, 60, 0, 1500); // yaw right
+    misty.MoveHeadDegrees(0, 0, 0, 60, 0, 1500); // yaw center
 
     misty.ChangeLED(255, 255, 0); // yellow
     misty.PlayAudio("s_Awe3.wav");
 
     // roll
-    misty.MoveHeadPosition(0, -5, 0, 60, 0, 1500); // roll left
-    misty.MoveHeadPosition(0, 5, 0, 60, 0, 1500); // roll right
-    misty.MoveHeadPosition(0, 0, 0, 60, 0, 1500); // roll center
+    misty.MoveHeadDegrees(0, -40, 0, 60, 0, 1500); // roll left
+    misty.MoveHeadDegrees(0, 40, 0, 60, 0, 1500); // roll right
+    misty.MoveHeadDegrees(0, 0, 0, 60, 0, 1500); // roll center
 
     misty.ChangeLED(0, 0, 0); // off
     misty.PlayAudio("s_DisorientedConfused.wav");
@@ -64,15 +64,15 @@ function _BackTOF() {
     misty.PlayAudio("s_Joy.wav");
 
     // left
-    misty.MoveArmPosition("Left", 10, 60, 0, 1500); // up
-    misty.MoveArmPosition("Left", 2, 60, 0, 1500); // down
+    misty.MoveArmDegrees("left", -29, 60, 0, 1500); // up
+    misty.MoveArmDegrees("left", 90, 60, 0, 1500); // down
 
     misty.ChangeLED(128, 0, 0) // maroon
     misty.PlayAudio("s_Joy2.wav");
 
     // right
-    misty.MoveArmPosition("Right", 10, 60, 0, 1500); // up
-    misty.MoveArmPosition("Right", 2, 60, 0, 1500); // down
+    misty.MoveArmDegrees("right", -29, 60, 0, 1500); // up
+    misty.MoveArmDegrees("right", 90, 60, 0, 1500); // down
 
     misty.ChangeLED(0, 0, 0); // off
     misty.PlayAudio("s_Joy3.wav");
