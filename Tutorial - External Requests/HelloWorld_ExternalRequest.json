@@ -9,7 +9,7 @@
     "CleanupOnCancel": false,
     "WriteToLog": false,
     "Parameters": {
-		"key": "<your-APIXU-key>",
-        "city": "Boulder"
+      "key": "<your-Weatherstack-key>",
+      "city": "Boulder"
 	}
 }
