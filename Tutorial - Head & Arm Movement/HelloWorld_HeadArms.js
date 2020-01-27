@@ -65,7 +65,7 @@ function _BackTOF() {
 
     // left
     misty.MoveArmDegrees("left", -29, 60, null, 0, 1500); // up
-    misty.MoveArmDegrees("left", 90, 60, 0, null, 1500); // down
+    misty.MoveArmDegrees("left", 90, 60, null, 0, 1500); // down
 
     misty.ChangeLED(128, 0, 0) // maroon
     misty.PlayAudio("s_Joy2.wav");
