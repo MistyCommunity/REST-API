@@ -24,7 +24,7 @@ implied.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Include references to a CDN for the Axios library and the local path where lightSocket.js is saved in the <head> of your document -->
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="../Tools/javascript/lightSocket.js"></script>
+	<script src="../../Tools/javascript/lightSocket.js"></script>
 </head>
 <body>
 	<script>
@@ -32,7 +32,7 @@ implied.
         
         // Declare a constant variable and set its 
         // value to a string with your robot's IP address.
-        const ip = "<robotipaddress>"
+        const ip = "<robot-ip-address>"
 
         // Create a global constant called you 
         // and assign it to a string with your name. 
@@ -119,14 +119,14 @@ implied.
             // Wrap the code for the _FaceRecognition callback 
             // inside try and catch statements. 
 			try {
-                // Use an if statement to check that personName 
+                // Use an if statement to check that label 
                 // does not equal "unknown person", null, or 
-                // undefined. personName is included in the 
+                // undefined. label is included in the 
                 // message returned by FaceRecognition WebSocket events.
-				if (data.message.personName !== "unknown person" && data.message.personName !== null && data.message.personName !== undefined) {
+				if (data.message.label !== "unknown person" && data.message.label !== null && data.message.label !== undefined) {
                     // If the face is recognized, print a 
                     // message to greet the person by name.
-					console.log(`A face was recognized. Hello there ${data.message.personName}!`);
+					console.log(`A face was recognized. Hello there ${data.message.label}!`);
 
 					// Unsubscribe from the FaceRecognition WebSocket.
                     socket.Unsubscribe("FaceRecognition");
