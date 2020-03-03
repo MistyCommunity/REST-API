@@ -22,7 +22,7 @@ var stop = document.getElementById("stop");
 var resultsBox = document.getElementById("results");
 
 var playAudioArg = {
-  "AssetId": "001-OooOooo.wav",
+  "AssetId": "s_Joy.wav",
 };
 var client;
 var ip;
