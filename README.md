@@ -15,7 +15,7 @@ This repository includes four directories:
 * **Sandbox** - A collection of robot applications that are not actively maintained by the Misty team. Sandbox code may not be up-to-date with Misty's current software.
 * **Tools** - JavaScript helper libraries that makes it easier to send commands and receive event messages with sensor data and other information from Misty's WebSocket connections. (Most of the examples in this repository include a reference to the library at `Tools/javascript/lightSocket.js`. You must have the **Tools** folder saved at the appropriate relative path in order for these applications to work.)
 
-Most of the robot applications in this repository run in an `.html` page to send commands and receive data from Misty from your web browser. The JavaScript application code is placed in `<script>` tags, and when the web page loads, the application communicates with Misty over your local area network connection. Most of these samples require you to update the `.html` file with your robot's IP address before they can run. Then you can start the application by opening the `.html` file in your web browser. To see debug messages and other information from the robot and the application, open the development console in your browser window. 
+Most of the examples in this repository run from an `.html` page that you load in your web browser to send Misty commands and receive event data over your local Wi-Fi network. These samples require you to update the `.html` file with your robot's IP address before they can run. You can then launch the application by opening the `.html` page in your web browser. To view debug messages and other information from the robot and the application, open the development console in your browser window.
 
 ---
 
