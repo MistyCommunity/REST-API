@@ -18,8 +18,8 @@ implied.
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="../Tools/javascript/lightClient.js"></script>
-	<script src="../Tools/javascript/lightSocket.js"></script>
+	<script src="../../Tools/javascript/lightClient.js"></script>
+	<script src="../../Tools/javascript/lightSocket.js"></script>
 
 	<!--  Sample 'Explore' skill.
 		This skill uses the robot's map-making ability to intelligently determine where to drive, to fill out the map.
@@ -75,9 +75,11 @@ implied.
 				return;
 			}
 
-			sensorStatus = data[0].result.sensorStatus;
-			status = data[0].result.status;
-			runMode = data[0].result.runMode;
+			console.log(data)
+
+			sensorStatus = data.result.sensorStatus;
+			status = data.result.status;
+			runMode = data.result.runMode;
 
 			console.log("Got SLAM sensorstatus: " + sensorStatus + " status: " + status + "  runMode: " + runMode + "\n");
 
