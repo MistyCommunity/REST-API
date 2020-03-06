@@ -1,0 +1,125 @@
+﻿<!-- /*
+*    Copyright 2019 Misty Robotics, Inc.
+
+*    Licensed under the Apache License, Version 2.0 (the "License");
+*    you may not use this file except in compliance with the License.
+*    You may obtain a copy of the License at
+*
+*    http://www.apache.org/licenses/LICENSE-2.0
+*
+*    Unless required by applicable law or agreed to in writing, software
+*    distributed under the License is distributed on an "AS IS" BASIS,
+*    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
+implied.
+*    See the License for the specific language governing permissions and
+*    limitations under the License.
+*/ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Tutorial | Taking Pictures</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Include references to a CDN for the Axios library and the local path where lightSocket.js is saved in the <head> of your document -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="../../Tools/javascript/lightSocket.js"></script>
+</head>
+<body>
+	<script>
+		/* GLOBALS */
+
+		// Declare a global variable ip and set its value to a string with your robot's IP address.
+		const ip = "<robot-ip-address>";
+		// Set firstTime to true. This variable tracks
+		// whether we have already sent the command to 
+		// start face detection.
+		let firstTime = true;
+		// Track whether we are currently subscribed 
+		// to FaceRecognition events.
+		let subscribed;
+		// Create a new instance of LightSocket. 
+		// Pass the ip variable and the name of the
+		// callback function to run when the socket opens.
+		let socket = new LightSocket(ip, openCallback);
+
+
+		/*TIMEOUT */
+
+		// Define sleep(). This function pauses execution
+		// for a set period of time.
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+
+		/* CALLBACKS */
+		// Define the openCallback() function.
+		// This function runs when the socket opens.
+		async function openCallback() {
+			subscribed = false;
+			// Unsubscribe from the FaceRecognition event.
+			socket.Unsubscribe("FaceRecognition");
+			// Pause execution while the event subscription ends.
+			await sleep(8000);
+			// Call socket.Subscribe(). Pass in the following
+			// arguments to subscribe to "FaceRecognition" events.
+			socket.Subscribe("FaceRecognition", "FaceRecognition", 1000, null, null, null, null, _FaceRecognition);
+		}
+		// Define the _FaceRecognition() callback function.
+		// This function handles FaceRecognition event data.
+		async function _FaceRecognition(data) {
+			// Print a message each time the callback executes.
+			console.log("CV callback called: ", data);
+			// Update subscribed to true.
+			if (!subscribed) {
+				subscribed = true;
+				// If firstTime is true, send a POST request
+				// to the endpoint for the StartFaceDetection
+				// command.
+				if (firstTime) {
+					axios.post("http://" + ip + "/api/faces/recognition/start")
+						.catch((err) => {
+							console.log(err);
+						});
+					// Update firstTime.
+					firstTime = false;
+				}
+				// Use return to exit the callback.
+				return
+			}
+
+			try {
+				// Use the Date() object to define a unique name
+    			// for each picture Misty takes.
+				let fileName = new Date().toLocaleString().replace(/[/]/g, ".").replace(/[:]/g, ".").replace(/[ ]/g, "_").replace(",", "") + "_Face";
+				// Use axios.get() to send a GET request
+				// to the endpoint for the TakePicture command. 
+				// Pass in the following params to save the file
+				// to Misty.
+				axios.get("http://" + ip + "/api/cameras/rgb", {
+					params: {
+						Base64: null,
+						FileName: fileName,
+						Width: 1200,
+						Height: 1600,
+						DisplayOnScreen: false,
+						OverwriteExisting: true
+					}
+				})
+				    // Use then() method to log the response.
+					.then(function (res) {
+						console.log(res);
+						console.log("Image saved with fileName: '" + fileName + "'");
+					});
+				// Call openCallback to start the process over again
+				openCallback();
+			}
+			catch (err) {
+				console.log(err);
+			}
+		}
+
+		socket.Connect();
+	</script>
+</body>
+</html>
