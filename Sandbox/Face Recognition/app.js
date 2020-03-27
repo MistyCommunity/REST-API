@@ -74,8 +74,8 @@ function startFaceRecognition() {
       console.log(event);
       var message = JSON.parse(event.data).message;
       console.log(message);
-      if (message.personName && message.personName !== "unknown person") {
-        printToScreen("I think I know you. Is this " + message.personName + "?");
+      if (message.label && message.label !== "unknown person") {
+        printToScreen("I think I know you. Is this " + message.label + "?");
       } else {
         messageCount += 1;
       }
