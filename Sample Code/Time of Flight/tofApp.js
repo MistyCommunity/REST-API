@@ -14,14 +14,12 @@ implied.
 *    limitations under the License.
 */
 
-var ip;
+var ip = "192.168.7.183";
 var subscribeMsg = {
   "Operation": "subscribe",
   "Type": "TimeOfFlight",
   "DebounceMs": 100,
 	"EventName": "FrontCenterTimeOfFlight",
-  "Message": "",
-  "ReturnProperty": null,
   "EventConditions":
   {
     "Property": "SensorId",
@@ -33,7 +31,6 @@ var subscribeMsg = {
 var unsubscribeMsg = {
   "Operation": "unsubscribe",
   "EventName": "FrontCenterTimeOfFlight",
-  "Message": ""
 };
 
 var subMsg = JSON.stringify(subscribeMsg);
@@ -42,9 +39,9 @@ var messageCount = 0;
 var socket;
 
 function startTimeOfFlight() {
-    //Create a new websocket
+    // Create a new websocket
     socket = new WebSocket("ws://" + ip + "/pubsub");
-    //When the socket is open, subscribe to the event
+    // When the socket is open, subscribe to the event
     socket.onopen = function(event) {
       console.log("WebSocket opened.");
       socket.send(subMsg);
