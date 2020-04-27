@@ -14,18 +14,20 @@ implied.
 *    limitations under the License.
 */
 
-var ip = "192.168.7.183";
+var ip = "<robot-ip-address>";
 var subscribeMsg = {
   "Operation": "subscribe",
   "Type": "TimeOfFlight",
   "DebounceMs": 100,
-	"EventName": "FrontCenterTimeOfFlight",
-  "EventConditions":
-  {
-    "Property": "SensorId",
-    "Inequality": "=",
-    "Value": "toffc"
-  }
+  "EventName": "FrontCenterTimeOfFlight",
+  "ReturnProperty": null,
+  "EventConditions": [
+    {
+      "Property": "SensorId",
+      "Inequality": "!=",
+      "Value": "toffc"
+    },
+  ]
 };
 
 var unsubscribeMsg = {
@@ -52,8 +54,9 @@ function startTimeOfFlight() {
       messageCount += 1;
       console.log(message);
       if (messageCount == 10) {
-	socket.send(unsubMsg);
+        socket.send(unsubMsg);
         socket.close();
+        console.log("Received 10 messages. Unsubscribing.")
       }
     };
     // Handle any errors that occur.
@@ -65,3 +68,5 @@ function startTimeOfFlight() {
       console.log("WebSocket closed.");
     };
 };
+
+startTimeOfFlight();
