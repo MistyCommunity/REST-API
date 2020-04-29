@@ -18,13 +18,13 @@ var ip = "<robot-ip-address>";
 var subscribeMsg = {
   "Operation": "subscribe",
   "Type": "TimeOfFlight",
-  "DebounceMs": 100,
+  "DebounceMs": 1000,
   "EventName": "FrontCenterTimeOfFlight",
   "ReturnProperty": null,
   "EventConditions": [
     {
       "Property": "SensorId",
-      "Inequality": "!=",
+      "Inequality": "=",
       "Value": "toffc"
     },
   ]
