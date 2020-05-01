@@ -14,26 +14,25 @@ implied.
 *    limitations under the License.
 */
 
-var ip;
+var ip = "<robot-ip-address>";
 var subscribeMsg = {
   "Operation": "subscribe",
   "Type": "TimeOfFlight",
-  "DebounceMs": 100,
-	"EventName": "FrontCenterTimeOfFlight",
-  "Message": "",
+  "DebounceMs": 1000,
+  "EventName": "FrontCenterTimeOfFlight",
   "ReturnProperty": null,
-  "EventConditions":
-  {
-    "Property": "SensorId",
-    "Inequality": "=",
-    "Value": "toffc"
-  }
+  "EventConditions": [
+    {
+      "Property": "SensorId",
+      "Inequality": "=",
+      "Value": "toffc"
+    },
+  ]
 };
 
 var unsubscribeMsg = {
   "Operation": "unsubscribe",
   "EventName": "FrontCenterTimeOfFlight",
-  "Message": ""
 };
 
 var subMsg = JSON.stringify(subscribeMsg);
@@ -42,9 +41,9 @@ var messageCount = 0;
 var socket;
 
 function startTimeOfFlight() {
-    //Create a new websocket
+    // Create a new websocket
     socket = new WebSocket("ws://" + ip + "/pubsub");
-    //When the socket is open, subscribe to the event
+    // When the socket is open, subscribe to the event
     socket.onopen = function(event) {
       console.log("WebSocket opened.");
       socket.send(subMsg);
@@ -55,8 +54,9 @@ function startTimeOfFlight() {
       messageCount += 1;
       console.log(message);
       if (messageCount == 10) {
-	socket.send(unsubMsg);
+        socket.send(unsubMsg);
         socket.close();
+        console.log("Received 10 messages. Unsubscribing.")
       }
     };
     // Handle any errors that occur.
@@ -68,3 +68,5 @@ function startTimeOfFlight() {
       console.log("WebSocket closed.");
     };
 };
+
+startTimeOfFlight();
