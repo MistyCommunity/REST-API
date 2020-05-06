@@ -1,5 +1,7 @@
 # Time of Flight Sample
 
+*This example was last tested on `robotVersion 1.16.1.10505`*
+
 This JavaScript sample demonstrates how to stream [`TimeOfFlight`](https://docs.mistyrobotics.com/misty-ii/robot/sensor-data/#timeofflight) event data to your web browser via Misty's WebSocket server.
 
 Misty has eight time-of-flight (ToF) sensors:
