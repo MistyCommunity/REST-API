@@ -50,7 +50,7 @@ implied.
     <script>
         // Declare a constant variable.
         // Set its value to your robot's IP address.
-        const ip = "<robotipaddress>";
+        const ip = "<robot-ip-address>";
 
         // Create a data object to send with the POST request. 
         // Set values for each RGB color property.
@@ -74,7 +74,7 @@ implied.
         // to print any errors to the console.
         axios.post("http://" + ip + "/api/led", data)
             .then(function (response) {
-                console.log(`ChangeLED was a ${response.data[0].status}`);
+                console.log(`ChangeLED was a ${response.data.status}`);
             })
             .catch(function (error) {
                 console.log(`There was an error with the request ${error}`);
