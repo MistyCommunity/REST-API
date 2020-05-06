@@ -1,8 +1,6 @@
-# REST API
+# REST API Tutorials
 
-This folder includes the full code samples for the REST API tutorials hosted in the Misty Robotics [developer documentation](https://docs.mistyrobotics.com).
-
-These examples are up-to-date with the current version of Misty's software. To check if your robot is up-to-date, see the [latest release notes](https://community.mistyrobotics.com/c/announcements/releases) in the Misty Community forums.
+This folder contains code samples from the REST API tutorials hosted in the Misty Robotics [developer documentation](https://docs.mistyrobotics.com), including:
 
 * __Changing Misty's LED__ - The full code sample from the tutorial on [Changing Misty's LED](https://docs.mistyrobotics.com/misty-ii/rest-api/tutorials/#changing-misty-s-led).
 * __Exploring Computer Vision__ - The full code sample from the tutorial on [Exploring Computer Vision](https://docs.mistyrobotics.com/misty-ii/rest-api/tutorials/#exploring-computer-vision). 
